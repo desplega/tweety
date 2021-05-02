@@ -21,6 +21,7 @@ class TweetsController extends Controller
             'user_id' => auth()->id(),
             'body' => $attributes['body']
         ]);
-        return redirect('/home');
+
+        return redirect()->route('home');
     }
 }
