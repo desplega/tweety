@@ -8,14 +8,15 @@
         </div>
 
         <div class="flex justify-between items-center mb-6">
-            <div>
+            <div style="max-width:270px">
                 <h2 class="font-bold text-2xl mb-0">{{ $user->name }}</h2>
                 <p class="text-sm">Joined {{ $user->created_at->diffForHumans() }}</p>
             </div>
 
             <div class="flex">
-                @can ('edit', $user)
-                    <a href="{{ $user->path('edit') }}" class="rounded-full border border-gray-300 py-2 px-4 text-black text-xs mr-2">
+                @can('edit', $user)
+                    <a href="{{ $user->path('edit') }}"
+                        class="rounded-full border border-gray-300 py-2 px-4 text-black text-xs mr-2">
                         Edit Profile
                     </a>
                 @endcan
@@ -39,6 +40,6 @@
 
 
     @include ('_timeline', [
-    'tweets' => $user->tweets
+        'tweets' => $tweets
     ])
 </x-app>
